@@ -299,10 +299,10 @@ Create `.env` files in each repository with the required environment variables. 
 
 ## Team
 
-- **[Placeholder: Team Member 1]** – AI/ML & Mobile Developer & Project Lead
-- **[Placeholder: Team Member 2]** – AI/ML Engineer & Backend Developer
-- **[Placeholder: Team Member 3]** – Web Developer & Frontend Developer
-- **[Placeholder: Team Member 4]** – UI/UX Designer & API Integration Specialist
+- **Team Member 1** – AI/ML & Mobile Developer & Project Lead
+- **Team Member 2** – AI/ML Engineer & Backend Developer
+- **Team Member 3** – Web Developer & Frontend Developer
+- **Team Member 4** – UI/UX Designer & API Integration Specialist
 
 _Team RexFlow - Where AI meets innovation and data fuels transformation!_
 
