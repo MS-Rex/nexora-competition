@@ -1,0 +1,133 @@
+<h1 id="nexora-system-architecture">Nexora System Architecture</h1>
+<pre class="mermaid"><code>flowchart TD
+    %% Users Layer
+    MobileUser[&quot;📱 Mobile User&lt;br/&gt;(Flutter App)&quot;]
+    WebUser[&quot;🌐 Web User&lt;br/&gt;(Next.js)&quot;]
+
+    %% Frontend Layer
+    subgraph Frontend[&quot;Frontend Layer&quot;]
+        Mobile[&quot;📱 Mobile App&lt;br/&gt;Flutter 3.29.1&lt;br/&gt;• BLoC State Management&lt;br/&gt;• Auto Route Navigation&lt;br/&gt;• Material Design 3&lt;br/&gt;• WebSocket Client&lt;br/&gt;• Audio Recording&quot;]
+        Web[&quot;🌐 Web Application&lt;br/&gt;Next.js&lt;br/&gt;• React Framework&lt;br/&gt;• University Chat Interface&lt;br/&gt;• Landing Pages&lt;br/&gt;• Responsive Design&quot;]
+    end
+
+    %% Communication Layer
+    subgraph Communication[&quot;Communication Layer&quot;]
+        WebSocket[&quot;📡 WebSocket&lt;br/&gt;Pusher Service&lt;br/&gt;• Real-time messaging&lt;br/&gt;• Voice data streaming&lt;br/&gt;• Connection management&quot;]
+        RestAPI[&quot;🔗 REST APIs&lt;br/&gt;Laravel Endpoints&lt;br/&gt;• Authentication&lt;br/&gt;• Data operations&lt;br/&gt;• File uploads&quot;]
+    end
+
+    %% Backend Services
+    subgraph Backend[&quot;Backend Services Layer&quot;]
+        Laravel[&quot;🛠️ Laravel Backend&lt;br/&gt;EC2 Instance 1&lt;br/&gt;• User Authentication&lt;br/&gt;• Spatie Permissions&lt;br/&gt;• Chat Management&lt;br/&gt;• API Gateway&quot;]
+        FastAPI[&quot;🤖 FastAPI AI Server&lt;br/&gt;EC2 Instance 2&lt;br/&gt;• Voice Processing&lt;br/&gt;• AI Agent Orchestration&lt;br/&gt;• OpenAI Whisper Integration&lt;br/&gt;• ML Pipeline&quot;]
+    end
+
+    %% AI/ML Layer
+    subgraph AI[&quot;AI/ML Processing&quot;]
+        Whisper[&quot;🎤 OpenAI Whisper&lt;br/&gt;Small Model (244M)&lt;br/&gt;• Speech-to-Text&lt;br/&gt;• Language Detection&lt;br/&gt;• Audio Transcription&quot;]
+        AIAgent[&quot;🧠 AI Agents&lt;br/&gt;• Conversation Processing&lt;br/&gt;• Response Generation&lt;br/&gt;• Context Management&quot;]
+    end
+
+    %% Data Layer
+    subgraph Data[&quot;Data &amp; Storage Layer&quot;]
+        MySQL[&quot;🗄️ MySQL Database&lt;br/&gt;Amazon RDS&lt;br/&gt;• User Data&lt;br/&gt;• Chat History&lt;br/&gt;• Authentication&lt;br/&gt;• Analytics&quot;]
+        FileStorage[&quot;📁 File Storage&lt;br/&gt;• Audio Files&lt;br/&gt;• Media Assets&lt;br/&gt;• User Uploads&quot;]
+    end
+
+    %% Infrastructure Layer
+    subgraph Infrastructure[&quot;AWS Infrastructure&quot;]
+        LoadBalancer[&quot;⚖️ Load Balancer&lt;br/&gt;• Traffic Distribution&lt;br/&gt;• High Availability&lt;br/&gt;• Auto-scaling&quot;]
+        Monitoring[&quot;📊 Monitoring&lt;br/&gt;Sentry&lt;br/&gt;• Error Tracking&lt;br/&gt;• Performance Metrics&lt;br/&gt;• Real-time Alerts&quot;]
+    end
+
+    %% User Connections
+    MobileUser --&gt; Mobile
+    WebUser --&gt; Web
+
+    %% Frontend to Communication
+    Mobile --&gt; WebSocket
+    Mobile --&gt; RestAPI
+    Web --&gt; RestAPI
+
+    %% Communication to Backend
+    WebSocket --&gt; Laravel
+    RestAPI --&gt; Laravel
+
+    %% Backend Connections
+    Laravel --&gt; MySQL
+    Laravel --&gt; FastAPI
+    FastAPI --&gt; Whisper
+    FastAPI --&gt; AIAgent
+    FastAPI --&gt; MySQL
+
+    %% Infrastructure Connections
+    LoadBalancer --&gt; Laravel
+    LoadBalancer --&gt; FastAPI
+    Monitoring --&gt; Laravel
+    Monitoring --&gt; FastAPI
+
+    %% Data Flow
+    Laravel --&gt; FileStorage
+    FastAPI --&gt; FileStorage
+
+    %% Styling
+    classDef userLayer fill:#e3f2fd,stroke:#1976d2,stroke-width:2px
+    classDef frontendLayer fill:#f3e5f5,stroke:#7b1fa2,stroke-width:2px
+    classDef commLayer fill:#e8f5e8,stroke:#388e3c,stroke-width:2px
+    classDef backendLayer fill:#fff3e0,stroke:#f57c00,stroke-width:2px
+    classDef aiLayer fill:#fce4ec,stroke:#c2185b,stroke-width:2px
+    classDef dataLayer fill:#f1f8e9,stroke:#689f38,stroke-width:2px
+    classDef infraLayer fill:#f5f5f5,stroke:#616161,stroke-width:2px
+
+    class MobileUser,WebUser userLayer
+    class Mobile,Web frontendLayer
+    class WebSocket,RestAPI commLayer
+    class Laravel,FastAPI backendLayer
+    class Whisper,AIAgent aiLayer
+    class MySQL,FileStorage dataLayer
+    class LoadBalancer,Monitoring infraLayer</code></pre>
+<h2 id="architecture-description">Architecture Description</h2>
+<p>This diagram shows the complete Nexora ecosystem architecture
+with:</p>
+<h3 id="frontend-layer">Frontend Layer</h3>
+<ul>
+<li><strong>Mobile App</strong>: Flutter 3.29.1 with BLoC pattern,
+real-time voice chat</li>
+<li><strong>Web Application</strong>: Next.js for university chat
+interface and landing pages</li>
+</ul>
+<h3 id="communication-layer">Communication Layer</h3>
+<ul>
+<li><strong>WebSocket</strong>: Pusher service for real-time messaging
+and voice streaming</li>
+<li><strong>REST APIs</strong>: Laravel endpoints for authentication and
+data operations</li>
+</ul>
+<h3 id="backend-services">Backend Services</h3>
+<ul>
+<li><strong>Laravel Backend</strong>: EC2 Instance 1 - User auth,
+permissions, chat management</li>
+<li><strong>FastAPI AI Server</strong>: EC2 Instance 2 - Voice
+processing, AI orchestration</li>
+</ul>
+<h3 id="aiml-processing">AI/ML Processing</h3>
+<ul>
+<li><strong>OpenAI Whisper</strong>: Small model (244M parameters) for
+speech recognition</li>
+<li><strong>AI Agents</strong>: Conversation processing and response
+generation</li>
+</ul>
+<h3 id="data-storage">Data &amp; Storage</h3>
+<ul>
+<li><strong>MySQL Database</strong>: Amazon RDS for user data, chat
+history, analytics</li>
+<li><strong>File Storage</strong>: Audio files, media assets, user
+uploads</li>
+</ul>
+<h3 id="aws-infrastructure">AWS Infrastructure</h3>
+<ul>
+<li><strong>Load Balancer</strong>: Traffic distribution and high
+availability</li>
+<li><strong>Monitoring</strong>: Sentry for error tracking and
+performance metrics</li>
+</ul>

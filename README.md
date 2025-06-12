@@ -123,10 +123,110 @@ _Screenshots and demo videos available in the [mobile app repository](https://gi
 ![Web App Demo](https://via.placeholder.com/800x400?text=Web+App+Screenshots)
 _Screenshots and demo videos available in the [web app repository](https://github.com/nilanviduranga/uni-chat-bot.git)_
 
-### AI System Architecture
+### Overall System Architecture
 
-![AI Architecture](https://via.placeholder.com/800x400?text=AI+System+Architecture)
-_Architecture diagrams and documentation available in the [AI system repository](https://github.com/MS-Rex/nexora-ai.git)_
+![Nexora System Architecture](images/overall-architecture.png)
+_Complete Nexora ecosystem architecture diagram showing all components and their interactions_
+
+<details>
+<summary>📊 Interactive Architecture Diagram (Click to expand)</summary>
+
+```mermaid
+flowchart TD
+    %% Users Layer
+    MobileUser["📱 Mobile User<br/>(Flutter App)"]
+    WebUser["🌐 Web User<br/>(Next.js)"]
+
+    %% Frontend Layer
+    subgraph Frontend["Frontend Layer"]
+        Mobile["📱 Mobile App<br/>Flutter 3.29.1<br/>• BLoC State Management<br/>• Auto Route Navigation<br/>• Material Design 3<br/>• WebSocket Client<br/>• Audio Recording"]
+        Web["🌐 Web Application<br/>Next.js<br/>• React Framework<br/>• University Chat Interface<br/>• Landing Pages<br/>• Responsive Design"]
+    end
+
+    %% Communication Layer
+    subgraph Communication["Communication Layer"]
+        WebSocket["📡 WebSocket<br/>Pusher Service<br/>• Real-time messaging<br/>• Voice data streaming<br/>• Connection management"]
+        RestAPI["🔗 REST APIs<br/>Laravel Endpoints<br/>• Authentication<br/>• Data operations<br/>• File uploads"]
+    end
+
+    %% Backend Services
+    subgraph Backend["Backend Services Layer"]
+        Laravel["🛠️ Laravel Backend<br/>EC2 Instance 1<br/>• User Authentication<br/>• Spatie Permissions<br/>• Chat Management<br/>• API Gateway"]
+        FastAPI["🤖 FastAPI AI Server<br/>EC2 Instance 2<br/>• Voice Processing<br/>• AI Agent Orchestration<br/>• OpenAI Whisper Integration<br/>• ML Pipeline"]
+    end
+
+    %% AI/ML Layer
+    subgraph AI["AI/ML Processing"]
+        Whisper["🎤 OpenAI Whisper<br/>Small Model (244M)<br/>• Speech-to-Text<br/>• Language Detection<br/>• Audio Transcription"]
+        AIAgent["🧠 AI Agents<br/>• Conversation Processing<br/>• Response Generation<br/>• Context Management"]
+    end
+
+        %% Data Layer
+    subgraph Data["Data Layer"]
+        MySQL["🗄️ MySQL Database<br/>Amazon RDS<br/>• User Data<br/>• Chat History<br/>• Authentication<br/>• Analytics<br/>• Voice Transcriptions"]
+    end
+
+    %% Infrastructure Layer
+    subgraph Infrastructure["AWS Infrastructure"]
+        LoadBalancer["⚖️ Load Balancer<br/>• Traffic Distribution<br/>• High Availability<br/>• Auto-scaling"]
+    end
+
+    %% External Services
+    subgraph External["External Services"]
+        Sentry["📊 Sentry Monitoring<br/>• Error Tracking<br/>• Performance Metrics<br/>• Real-time Alerts<br/>• Application Monitoring"]
+    end
+
+    %% User Connections
+    MobileUser --> Mobile
+    WebUser --> Web
+
+    %% Frontend to Communication
+    Mobile --> WebSocket
+    Mobile --> RestAPI
+    Web --> RestAPI
+
+    %% Communication to Backend
+    WebSocket --> Laravel
+    RestAPI --> Laravel
+
+    %% Backend Connections
+    Laravel --> MySQL
+    Laravel --> FastAPI
+    FastAPI --> Whisper
+    FastAPI --> AIAgent
+    FastAPI --> MySQL
+
+        %% Infrastructure Connections
+    LoadBalancer --> Laravel
+    LoadBalancer --> FastAPI
+
+    %% External Service Connections
+    Sentry --> Laravel
+    Sentry --> FastAPI
+
+    %% Styling
+        classDef userLayer fill:#e3f2fd,stroke:#1976d2,stroke-width:2px
+    classDef frontendLayer fill:#f3e5f5,stroke:#7b1fa2,stroke-width:2px
+    classDef commLayer fill:#e8f5e8,stroke:#388e3c,stroke-width:2px
+    classDef backendLayer fill:#fff3e0,stroke:#f57c00,stroke-width:2px
+    classDef aiLayer fill:#fce4ec,stroke:#c2185b,stroke-width:2px
+    classDef dataLayer fill:#f1f8e9,stroke:#689f38,stroke-width:2px
+    classDef infraLayer fill:#f5f5f5,stroke:#616161,stroke-width:2px
+    classDef externalLayer fill:#fff8e1,stroke:#ff8f00,stroke-width:2px
+
+    class MobileUser,WebUser userLayer
+    class Mobile,Web frontendLayer
+    class WebSocket,RestAPI commLayer
+    class Laravel,FastAPI backendLayer
+    class Whisper,AIAgent aiLayer
+    class MySQL dataLayer
+    class LoadBalancer infraLayer
+    class Sentry externalLayer
+```
+
+</details>
+
+_Complete Nexora ecosystem architecture showing the integration of mobile app, web application, AI processing, and AWS infrastructure_
 
 ## Setup Instructions
 
