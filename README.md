@@ -85,7 +85,6 @@ Our project is organized into three main repositories, each handling a specific 
 - **Frontend**: Next.js (React-based framework)
 - **Backend**: Laravel (PHP framework)
 - **Database**: MySQL
-- **Others**: [Placeholder: Additional libraries and APIs]
 
 ## Live Infrastructure
 
