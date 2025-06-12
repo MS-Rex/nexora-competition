@@ -125,7 +125,7 @@ _Screenshots and demo videos available in the [web app repository](https://githu
 
 ### Overall System Architecture
 
-![Nexora System Architecture](images/overall-architecture.png)
+![Nexora System Architecture](images/overall_architecture.png)
 _Complete Nexora ecosystem architecture diagram showing all components and their interactions_
 
 <details>
