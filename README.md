@@ -76,9 +76,9 @@ Our project is organized into three main repositories, each handling a specific 
 - **Real-time Communication**: Pusher (WebSocket service)
 - **Authentication & Authorization**: Spatie Laravel Permission (Role management)
 - **Database**: MySQL
-- **AI/ML**: [Placeholder: AI frameworks and models]
+- **AI/ML**: OpenAI Whisper (Small model - 244M parameters)
+- **Voice Processing**: OpenAI Whisper for speech recognition and transcription
 - **Communication**: WebSocket Gateway, REST APIs
-- **Voice Processing**: [Placeholder: Voice processing libraries]
 
 ### Web Application
 
