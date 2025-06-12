@@ -112,6 +112,9 @@ Our complete Nexora ecosystem is deployed and running live on AWS cloud infrastr
 
 ### Mobile Application Demo
 
+![Mobile UI Design](images/mobile-ui.png)
+_Mobile app UI design created in Figma showcasing the voice chat interface and animations_
+
 ![Mobile App Demo](https://via.placeholder.com/800x400?text=Mobile+App+Screenshots)
 _Screenshots and demo videos available in the [mobile app repository](https://github.com/MS-Rex/nexora-app.git)_
 
