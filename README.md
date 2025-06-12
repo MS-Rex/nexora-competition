@@ -115,13 +115,27 @@ Our complete Nexora ecosystem is deployed and running live on AWS cloud infrastr
 ![Mobile UI Design](images/mobile-ui.png)
 _Mobile app UI design created in Figma showcasing the voice chat interface and animations_
 
-![Mobile App Demo](https://via.placeholder.com/800x400?text=Mobile+App+Screenshots)
-_Screenshots and demo videos available in the [mobile app repository](https://github.com/MS-Rex/nexora-app.git)_
+<table>
+<tr>
+<td width="50%">
+<img src="images/app_home_page.png" alt="Mobile Home Page" />
+<p align="center"><em>Nexora mobile app home screen showing the clean and intuitive user interface</em></p>
+</td>
+<td width="50%">
+<img src="images/app_voice_mode.png" alt="Voice Chat Mode" />
+<p align="center"><em>Active voice chat mode with real-time voice visualization and AI interaction interface</em></p>
+</td>
+</tr>
+</table>
+
+_Additional screenshots and demo videos available in the [mobile app repository](https://github.com/MS-Rex/nexora-app.git)_
 
 ### Web Application Demo
 
-![Web App Demo](https://via.placeholder.com/800x400?text=Web+App+Screenshots)
-_Screenshots and demo videos available in the [web app repository](https://github.com/nilanviduranga/uni-chat-bot.git)_
+![Web Application Home Page](images/web_homepage.jpg)
+_Nexora web application home page featuring the university chatbot interface built with Next.js_
+
+_Additional screenshots and demo videos available in the [web app repository](https://github.com/nilanviduranga/uni-chat-bot.git)_
 
 ### Overall System Architecture
 
