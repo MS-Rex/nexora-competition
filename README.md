@@ -1,5 +1,8 @@
 # Nexora University Copilot
 
+![Nexora Cover Photo](images/cover_photo.png)
+_Nexora - AI-Powered University Communication Ecosystem_
+
 ## Project Overview
 
 Nexora is an AI-powered voice chat application ecosystem designed to revolutionize university communication and support. Our comprehensive solution combines real-time voice conversations, intelligent AI agents, and modern web interfaces to create an seamless educational technology platform. Built for the Nexora 1.0 Inter-University Datathon 2025, this project demonstrates advanced AI agent orchestration, real-time communication, and intelligent user interaction capabilities.
@@ -28,7 +31,6 @@ Our project is organized into three main repositories, each handling a specific 
 - Voice-to-text and text-to-voice conversion
 - AI agent management and coordination
 - Machine learning pipeline integration
-- [Placeholder: Additional backend features]
 
 ### 🌐 [Web Application & Landing Page](https://github.com/nilanviduranga/uni-chat-bot.git)
 
@@ -37,7 +39,6 @@ Our project is organized into three main repositories, each handling a specific 
 - University chatbot web interface
 - Landing page and marketing materials
 - Web-based chat functionality
-- [Placeholder: Additional web features]
 
 ## Features
 
@@ -243,6 +244,52 @@ _Complete Nexora ecosystem architecture showing the integration of mobile app, w
 
 ## Setup Instructions
 
+To run the complete Nexora ecosystem locally, you'll need access to several external services and APIs. Follow the setup instructions for each component:
+
+### Prerequisites & External Services
+
+Before setting up the local environment, ensure you have access to the following services:
+
+#### Required API Keys & Services:
+
+- **🤖 OpenAI API**: Required for AI conversation processing and language models
+- **📊 Logfire API**: Required for advanced logging and monitoring
+- **📈 Sentry API**: Required for error tracking and performance monitoring
+- **☁️ AWS RDS URL**: Required for database connectivity (alternatively, set up local MySQL)
+- **🎤 OpenAI Whisper Model**: Can be run locally (Small model - 244M parameters)
+
+#### Environment Variables:
+
+Create `.env` files in each repository with the following required variables:
+
+```bash
+# OpenAI Configuration
+OPENAI_API_KEY=your_openai_api_key_here
+
+# Logfire Configuration
+LOGFIRE_API_KEY=your_logfire_api_key_here
+
+# Sentry Configuration
+SENTRY_DSN=your_sentry_dsn_here
+
+# Database Configuration
+AWS_RDS_URL=your_aws_rds_connection_string
+# OR for local development:
+DB_CONNECTION=mysql
+DB_HOST=127.0.0.1
+DB_PORT=3306
+DB_DATABASE=nexora_local
+DB_USERNAME=your_username
+DB_PASSWORD=your_password
+
+# Pusher Configuration (for WebSocket)
+PUSHER_APP_ID=your_pusher_app_id
+PUSHER_KEY=your_pusher_key
+PUSHER_SECRET=your_pusher_secret
+```
+
+### Local Development Setup
+
 To run the complete Nexora ecosystem locally, follow the setup instructions for each component:
 
 ### 1. Mobile Application Setup
@@ -284,9 +331,45 @@ cd uni-chat-bot
 # Follow setup instructions in the web application repository
 ```
 
-### Environment Configuration
+### Alternative Local Setup (Without External Services)
 
-Create `.env` files in each repository with the required environment variables. Refer to the individual repository README files for specific configuration details.
+If you prefer to run everything locally without external dependencies:
+
+#### Local MySQL Setup:
+
+```bash
+# Install and configure local MySQL
+sudo apt-get install mysql-server  # Ubuntu/Debian
+brew install mysql                 # macOS
+
+# Create local database
+mysql -u root -p
+CREATE DATABASE nexora_local;
+```
+
+#### Local Whisper Setup:
+
+```bash
+# Install OpenAI Whisper locally
+pip install openai-whisper
+
+# Download the small model (244M parameters)
+whisper --model small --download-root ./models
+```
+
+#### Minimal Environment Configuration:
+
+For basic local development, you can use minimal configuration:
+
+```bash
+# Minimal .env for local development
+DB_CONNECTION=mysql
+DB_HOST=127.0.0.1
+DB_DATABASE=nexora_local
+WHISPER_MODEL_PATH=./models/small.pt
+```
+
+Refer to the individual repository README files for component-specific configuration details and additional setup options.
 
 ## Repository Links
 
