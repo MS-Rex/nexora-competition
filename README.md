@@ -11,7 +11,7 @@ The Nexora ecosystem consists of three integrated components working together to
 
 ## System Architecture
 
-Our project is organized into three main repositories, each handling a specific component of the Nexora ecosystem:
+Our project is organized into four main repositories, each handling a specific component of the Nexora ecosystem:
 
 ### 📱 [Mobile Application](https://github.com/MS-Rex/nexora-app.git)
 
@@ -32,13 +32,24 @@ Our project is organized into three main repositories, each handling a specific 
 - AI agent management and coordination
 - Machine learning pipeline integration
 
-### 🌐 [Web Application & Landing Page](https://github.com/nilanviduranga/uni-chat-bot.git)
+### 🌐 [Web Application](https://github.com/nilanviduranga/uni-chat-bot.git)
 
-**Web Interface & Marketing Platform**
+**University Chat Interface**
 
 - University chatbot web interface
-- Landing page and marketing materials
 - Web-based chat functionality
+- Real-time messaging system
+
+### 🎨 [Landing Page](https://github.com/MS-Rex/nexora-landing.git)
+
+**Marketing Platform & Competition Entry**
+
+- Modern Next.js 15 landing page
+- Competition showcase and information
+- Responsive design with dark/light theme
+- Built by Team RexFlow for Nexora 1.0 Datathon
+
+[![Watch the video](https://img.youtube.com/vi/l6LxqBMR7uM/maxresdefault.jpg)](https://www.youtube.com/watch?v=l6LxqBMR7uM)
 
 ## Features
 
@@ -288,6 +299,11 @@ PUSHER_KEY=your_pusher_key
 PUSHER_SECRET=your_pusher_secret
 ```
 
+### If you Love be Alpha tester on Production Application use below credentials to login (Its not fully functional due limited resources and time but soon will be full update to latest code)
+
+Email : test-user@nexora.com
+OTP : 123456
+
 ### Local Development Setup
 
 To run the complete Nexora ecosystem locally, follow the setup instructions for each component:
@@ -393,8 +409,6 @@ _Team RexFlow - Where AI meets innovation and data fuels transformation!_
 - **Mobile App Documentation**: Available in [nexora-app repository](https://github.com/MS-Rex/nexora-app.git)
 - **AI System Documentation**: Available in [nexora-ai repository](https://github.com/MS-Rex/nexora-ai.git)
 - **Web App Documentation**: Available in [uni-chat-bot repository](https://github.com/nilanviduranga/uni-chat-bot.git)
-- **API Documentation**: [Placeholder: Link to API docs]
-- **Architecture Diagrams**: [Placeholder: Link to system architecture]
 
 ## Competition Details
 
